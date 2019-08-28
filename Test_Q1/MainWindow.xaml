@@ -1,0 +1,35 @@
+﻿<Window x:Class="Test_Q1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_Q1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" FontSize="20">
+    <Window.Resources>
+        <local:ValueConverterSize x:Key="valueConverterSize"></local:ValueConverterSize>
+
+    </Window.Resources>
+    <Grid>
+        <!--Text Box for button-->
+        <Label Content="Text :" HorizontalAlignment="Left" Margin="82,61,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="BtnTxt" HorizontalAlignment="Left" Height="37" Margin="163,61,0,0" TextWrapping="Wrap" Text="{Binding TextOfBtn, Mode=TwoWay}" VerticalAlignment="Top" Width="162"/>
+        <!--Slider width-->
+        <Label Content="Width" HorizontalAlignment="Left" Margin="82,134,0,0" VerticalAlignment="Top"/>
+        <Slider Minimum="15" Maximum="250" IsSnapToTickEnabled="True" Margin="163,134,282,258" Name="SlideWidth" Value="{Binding Width, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="555,134,0,0" TextWrapping="Wrap" Text="{Binding ElementName=SlideWidth, Path=Value, Mode=OneWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="625,138,0,0" TextWrapping="Wrap" 
+                   Text="{Binding ElementName=SlideWidth, Path=Value, Converter={StaticResource valueConverterSize}}" VerticalAlignment="Top"/>
+        <!--Slider height-->
+        <Label Content="Height" HorizontalAlignment="Left" Margin="82,206,0,0" VerticalAlignment="Top"/>
+        <Slider Minimum="50" Maximum="100"  IsSnapToTickEnabled="True" Margin="163,206,282,186" x:Name="SlideHeight" Value="{Binding Height, Mode=TwoWay}"/>
+        <TextBlock HorizontalAlignment="Left" Margin="555,206,0,0" TextWrapping="Wrap" Text="{Binding Value, ElementName=SlideHeight, Mode=OneWay}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="625,210,0,0" TextWrapping="Wrap" 
+                   Text="{Binding ElementName=SlideWidth, Path=Value, Converter={StaticResource valueConverterSize}}" VerticalAlignment="Top"/>
+        <!--Button for new window-->
+        <Button Content="{Binding ElementName=BtnTxt, Path=Text,Mode=OneWay}" HorizontalAlignment="Left" Margin="117,293,0,0" VerticalAlignment="Top" 
+                Width="{Binding ElementName=SlideWidth, Path=Value, Mode=OneWay}" Height="{Binding ElementName=SlideHeight, Path=Value, Mode=OneWay}"
+            Command="{Binding MyDelegate}"/>
+            
+    </Grid>
+</Window>

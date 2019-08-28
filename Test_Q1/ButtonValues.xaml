@@ -1,0 +1,22 @@
+﻿<Window x:Class="Test_Q1.ButtonValues"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Test_Q1"
+        mc:Ignorable="d"
+        Title="ButtonValues" Height="350" Width="300">
+    
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="13,50,0,0" TextWrapping="Wrap" Text="Width" VerticalAlignment="Top" RenderTransformOrigin="1.347,0.875"/>
+        <TextBlock x:Name="WidthPresentor" HorizontalAlignment="Left" Margin="113,50,0,0" TextWrapping="Wrap" 
+                   Text="{Binding}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="13,114,0,0" TextWrapping="Wrap" Text="Height" VerticalAlignment="Top"/>
+        <TextBlock x:Name="HeightPresentor" HorizontalAlignment="Left" Margin="113,117,0,0" TextWrapping="Wrap" 
+                   Text="{Binding}" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="11,180,0,0" TextWrapping="Wrap" Text="Text" VerticalAlignment="Top"/>
+        <TextBlock x:Name="TextPresentor" HorizontalAlignment="Left" Margin="113,183,0,0" TextWrapping="Wrap" 
+                   Text="{Binding}"  VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>
